@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 
 const Links = () => {
-    
+
     const ListHolder = styled.ul`
         list-style-type: none;
         margin: 0;
@@ -11,11 +11,11 @@ const Links = () => {
         overflow: hidden;
         background-color: #333333;
     `;
-    
+
     const FloatLi = styled.li` 
         float: left;
         `;
-    
+
     const LinkLabel = styled.a`
         display: block;
         color: white;
@@ -44,6 +44,11 @@ const Links = () => {
             <FloatLi>
                 <Link href="/positiveTestRate" passHref>
                     <LinkLabel>Positive Test Rate</LinkLabel>
+                </Link>
+            </FloatLi>
+            <FloatLi>
+                <Link href="/dailyTests" passHref>
+                    <LinkLabel>Daily Tests</LinkLabel>
                 </Link>
             </FloatLi>
         </ListHolder>
