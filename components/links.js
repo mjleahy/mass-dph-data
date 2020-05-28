@@ -41,6 +41,11 @@ const Links = () => {
                     <LinkLabel>New vs Total</LinkLabel>
                 </Link>
             </FloatLi>
+            <FloatLi>
+                <Link href="/positiveTestRate" passHref>
+                    <LinkLabel>Positive Test Rate</LinkLabel>
+                </Link>
+            </FloatLi>
         </ListHolder>
     )
 
