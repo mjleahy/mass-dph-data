@@ -63,7 +63,7 @@ export async function getStaticProps(context) {
             avg7 = t7 > 0 ? p7 / t7 * 100 : 0;
         }
 
-        data.push({ date: new Date(tests[i]['Date']).getTime(), tests: tests[i]['New'], rate, avg3, avg7 })
+        data.push({ date: new Date(tests[i]['Date']).getTime(), tests: parseInt(tests[i]['New']), rate, avg3, avg7 })
     }
 
     return { props: { data } }
