@@ -36,6 +36,11 @@ const Links = () => {
                     <LinkLabel>Chart 1</LinkLabel>
                 </Link>
             </FloatLi>
+            <FloatLi>
+                <Link href="/newVsTotal" passHref>
+                    <LinkLabel>New vs Total</LinkLabel>
+                </Link>
+            </FloatLi>
         </ListHolder>
     )
 
