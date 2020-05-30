@@ -51,6 +51,11 @@ const Links = () => {
                     <LinkLabel>Daily Tests</LinkLabel>
                 </Link>
             </FloatLi>
+            <FloatLi>
+                <Link href="/ageOfPatients">
+                    <LinkLabel>Age of Cases</LinkLabel>
+                </Link>
+            </FloatLi>
         </ListHolder>
     )
 

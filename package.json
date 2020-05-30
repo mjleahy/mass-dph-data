@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "d3-scale-chromatic": "^1.5.0",
     "fast-csv": "^4.3.0",
     "lodash": "^4.17.15",
     "moment": "^2.26.0",
