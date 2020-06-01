@@ -11,7 +11,7 @@ const ChartNewCasesByAge = ({ data, groups }) => {
                     <YAxis type="number" domain={[10, 100]} />
                     <XAxis dataKey="date" tickFormatter={FormatXAxis} />
                     <Brush dataKey="date" tickFormatter={FormatXAxis} />
-                    <Tooltip labelFormatter={FormatXAxis} formatter={FormatToolTip} />
+                    <Tooltip labelFormatter={FormatXAxis} />
                     {groups.map((group, index) => (
                         <Line id={group} name={group} type="monotone" dataKey={group} stroke={schemePaired[index]} />
                     ))}

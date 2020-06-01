@@ -27,27 +27,27 @@ const Links = () => {
     return (
         <ListHolder>
             <FloatLi>
-                <Link href="/" passHref>
+                <Link href="/" >
                     <LinkLabel>Home</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/chart1" passHref>
+                <Link href="/chart1" >
                     <LinkLabel>Chart 1</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/newVsTotal" passHref>
+                <Link href="/newVsTotal" >
                     <LinkLabel>New vs Total</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/positiveTestRate" passHref>
+                <Link href="/positiveTestRate" >
                     <LinkLabel>Positive Test Rate</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/dailyTests" passHref>
+                <Link href="/dailyTests" >
                     <LinkLabel>Daily Tests</LinkLabel>
                 </Link>
             </FloatLi>
@@ -59,6 +59,11 @@ const Links = () => {
             <FloatLi>
                 <Link href="/newCasesByAge">
                     <LinkLabel>New Cases By Age</LinkLabel>
+                </Link>
+            </FloatLi>
+            <FloatLi>
+                <Link href="/newHospitalByAge">
+                    <LinkLabel>New Hospitalizations By Age</LinkLabel>
                 </Link>
             </FloatLi>
         </ListHolder>
