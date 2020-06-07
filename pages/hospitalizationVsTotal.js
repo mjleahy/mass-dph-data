@@ -1,13 +1,13 @@
 import Links from '../components/links'
 import Head from 'next/head'
 import ChartHospitalizationsVsTotal from '../components/charts/chartHospitalizationsVsTotal';
-import LoadCaseByDate from '../lib/casesByDate';
-import { Hospitalizations } from '../lib/loadData';
+const { LoadCasesByDate, Hospitalizations } = require('../lib/loadData');
 const _ = require('lodash');
-const moment = require('moment');
+import ChartWithNotes from '../components/chartWithNotes'
 
-export default function HospitalizationsVsTotal({ data }) {
+export default function HospitalizationsVsTotal({ data, notes }) {
     const t = "Hospitalizations Vs Total";
+    const chart = <ChartHospitalizationsVsTotal data={data} />
     return (
         <div className="container">
             <Head>
@@ -18,19 +18,14 @@ export default function HospitalizationsVsTotal({ data }) {
             <main>
                 <Links />
                 <h1>{t}</h1>
-                <ChartHospitalizationsVsTotal data={data} />
-                <h3>Notes</h3>
-                <ul>
-                    <li>Count of hospitalizations before 4/4 is not included in CSV.  Earlier values were taken from daily updates</li>
-                </ul>
-
+                <ChartWithNotes chart={chart} notes={notes} />
             </main>
         </div>
     )
 }
 
 export async function getStaticProps(context) {
-    const cases = await LoadCaseByDate();
+    const cases = await LoadCasesByDate();
     const hospitalizations = await Hospitalizations(true);
     const data = [];
     console.log(`Cases: ${JSON.stringify(cases[0])}`)
@@ -47,5 +42,6 @@ export async function getStaticProps(context) {
         })
     })
     console.log(`Rows: ${JSON.stringify(data[0])}`);
-    return { props: { data } }
+    const notes = ['Count of hospitalizations before 4/4 is not included in CSV.  Earlier values were taken from daily updates'];
+    return { props: { data, notes } }
 }
