@@ -26,7 +26,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <Links/>
+        <p>NODE_ENV: {process.env.NODE_ENV}</p>
+        <p>URL: {process.env.BACKEND_URL}</p>
+        <Links />
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
