@@ -5,19 +5,19 @@ interface ChartWithNotesProps {
     chart: React.FC
 }
 
-const ChartWithNotes: React.FC<ChartWithNotesProps> = ({ notes, chart }) => {
-    return (
+const ChartWithNotes: React.FC<ChartWithNotesProps> = ({ notes, chart }) =>
+    (
         <>
             {chart}
-            < h3 > Notes < /h3>
-        < ul >
-                    {
-                        notes.map((note) => (
-                            <li key={note}>{note} < /li>
-            ))
-        }
-                                < /ul>
-                                < />
+            <h3> Notes </h3>
+            <ul>
+                {
+                    notes.map((note:string) => (
+                        <li key={note}> {note} </li>
+                    ))
+                }
+            </ul>
+        </>
     )
-    }
-    export default ChartWithNotes;
+
+export default ChartWithNotes;

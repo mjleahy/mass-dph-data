@@ -3,7 +3,7 @@ const fs = require('fs');
 const moment = require('moment');
 const _ = require('lodash');
 
-const LoadFile = async (filename) => {
+const LoadFile = async (filename): Promise<Array<any>> => {
     const rows = [];
     return new Promise((resolve, reject) => {
         fs.createReadStream(filename)
@@ -13,7 +13,7 @@ const LoadFile = async (filename) => {
     })
 }
 
-export const Hospitalizations = async (loadExtra) => {
+export const Hospitalizations = async (loadExtra: boolean) => {
     const main = await LoadFile('data/Hospitalization from Hospitals.csv');
     if (loadExtra) {
         const extra = await LoadFile('data/EarlyHospitalizations.csv');
