@@ -27,6 +27,7 @@ export default function Home() {
 
       <main>
         <Links />
+        <p>Debug={(process.env.NODE_ENV !== 'production') ? "True" : "False"} Post</p>
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
