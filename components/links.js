@@ -39,6 +39,9 @@ const Links = () => {
         text-decordation: none;
     `;
 
+    console.log(`ENV: ${process.env.NODE_ENV}`);
+    console.log(`URL: ${process.env.BACKEND_URL}`);
+
     return (
         <ListHolder>
             <FloatLi>
