@@ -42,6 +42,11 @@ const Links = () => {
                 </Link>
             </FloatLi>
             <FloatLi>
+                <Link href="/hospitalizationVsTotal" >
+                    <LinkLabel>Hospitalizations vs Total</LinkLabel>
+                </Link>
+            </FloatLi>
+            <FloatLi>
                 <Link href="/positiveTestRate" >
                     <LinkLabel>Positive Test Rate</LinkLabel>
                 </Link>
