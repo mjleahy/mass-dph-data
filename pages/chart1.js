@@ -1,10 +1,7 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import Links from '../components/links'
 import Chart1 from '../components/chart1'
-import LoadTestingByDate from '../lib/testingByDay'
-import LoadCasesByDate from '../lib/casesByDate'
-import { DateOfDeath, Hospitalizations } from '../lib/loadData'
+import { LoadTestingByDate, LoadCasesByDate, DateOfDeath, Hospitalizations } from '../lib/loadData'
 import ScaleToggle from '../components/scaleToggle'
 import { useState } from 'react';
 
@@ -20,8 +17,8 @@ export default function Chart1Page({ data }) {
             <main>
                 <Links />
                 <h1>Chart 1</h1>
-                <Chart1 data={data} scale={scale}/>
-                <ScaleToggle scale={scale} setScale={setScale}/>
+                <Chart1 data={data} scale={scale} />
+                <ScaleToggle scale={scale} setScale={setScale} />
             </main>
         </div>
     )
@@ -51,9 +48,9 @@ const addToData = (data, sourceData, dateField, srcField, destField) => {
 
 export async function getStaticProps(conext) {
     const tempData = {};
-    addToData(tempData, await LoadTestingByDate(), 'Date', 'Total', 'tests');
-    addToData(tempData, await LoadCasesByDate(), 'Date', 'Total', 'cases');
-    addToData(tempData, await DateOfDeath(), 'Date of Death', 'Running Total', 'deaths');
+    addToData(tempData, await LoadTestingByDate(), 'Date', 'Molecular Total', 'tests');
+    addToData(tempData, await LoadCasesByDate(), 'Date', 'Positive Total', 'cases');
+    addToData(tempData, await DateOfDeath(), 'Date of Death', 'Confirmed Total', 'deaths');
     addToData(tempData, await Hospitalizations(), 'Date', 'Total number of COVID patients in hospital today', 'hospitalizations');
     const data = [];
     const keys = Object.keys(tempData);
