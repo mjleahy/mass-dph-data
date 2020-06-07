@@ -36,7 +36,7 @@ export default function Home() {
         </p>
 
         <div className="grid">
-          <Link href="/chart1" as={process.env.BACKEND_URL + '/chart1'>
+          <Link href="/chart1" as={process.env.BACKEND_URL + '/chart1'}>
             <a className="card">
               <h3>Chart 1</h3>
               <p>The 1st chart I started</p>
