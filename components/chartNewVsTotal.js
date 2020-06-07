@@ -8,10 +8,10 @@ const ChartNewVsTotal = ({ data }) => {
     return (
         <div style={{ width: '100%', height: 600 }}>
             <ResponsiveContainer>
-                <ScatterChart width={800} height={600}>
+                <ScatterChart >
                     <CartesianGrid />
-                    <XAxis dataKey={"totalCases"} ticks={xTicks} scale="log" domain={[1, _.max(xTicks)]} />
-                    <YAxis dataKey={"newCases"} ticks={yTicks} scale="log" domain={[1, _.max(yTicks)]} />
+                    <XAxis dataKey={"totalCases"} ticks={xTicks} interval={0} scale="log" domain={[1, _.max(xTicks)]} />
+                    <YAxis dataKey={"newCases"} ticks={yTicks} interval={0} scale="log" domain={[1, _.max(yTicks)]} />
                     <Scatter name="P1" data={data} fill='#0000FF' line />
                     <Tooltip />
                 </ScatterChart>

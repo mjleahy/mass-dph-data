@@ -11,8 +11,8 @@ const HospitalizationsVsTotal = ({ data }) => {
             <ResponsiveContainer>
                 <ScatterChart width={800} height={600}>
                     <CartesianGrid />
-                    <XAxis dataKey={"cases"} scale="log" label="Total Cases" domain={[1, _.max(xTicks)]} ticks={xTicks} />
-                    <YAxis dataKey={"hospitalizations"} scale="log" ticks={yTicks} domain={[1, _.max(yTicks)]} label={{ value: "Hospitalizations", angle: '-90' }} />
+                    <XAxis dataKey={"cases"} scale="log" interval={0} label="Total Cases" domain={[1, _.max(xTicks)]} ticks={xTicks} />
+                    <YAxis dataKey={"hospitalizations"} interval={0} scale="log" ticks={yTicks} domain={[1, _.max(yTicks)]} label={{ value: "Hospitalizations", angle: '-90' }} />
                     <Scatter name="P1" data={data} fill="#0000FF" line />
                     <Tooltip />
                 </ScatterChart>
