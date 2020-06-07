@@ -42,52 +42,52 @@ const Links = () => {
     return (
         <ListHolder>
             <FloatLi>
-                <Link href="/" >
+                <Link href="/" as={process.env.BACKEND_URL + '/'}>
                     <LinkLabel>Home</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/chart1" >
+                <Link href="/chart1" as={process.env.BACKEND_URL + '/chart1'}>
                     <LinkLabel>Chart 1</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/newVsTotal" >
+                <Link href="/newVsTotal" as={process.env.BACKEND_URL + '/newVsTotal'}>
                     <LinkLabel>New vs Total</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/hospitalizationVsTotal" >
+                <Link href="/hospitalizationVsTotal" as={process.env.BACKEND_URL + '/hospitalizationVsTotal'} >
                     <LinkLabel>Hospitalizations vs Total</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/positiveTestRate" >
+                <Link href="/positiveTestRate" as={process.env.BACKEND_URL + '/positiveTestRate'} >
                     <LinkLabel>Positive Test Rate</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/dailyTests" >
+                <Link href="/dailyTests" as={process.env.BACKEND_URL + '/dailyTests'}>
                     <LinkLabel>Daily Tests</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/ageOfPatients">
+                <Link href="/ageOfPatients" as={process.env.BACKEND_URL + '/ageOfPatients'}>
                     <LinkLabel>Age of Cases</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/newCasesByAge">
+                <Link href="/newCasesByAge" as={process.env.BACKEND_URL + '/newCasesByAge'}>
                     <LinkLabel>New Cases By Age</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/newHospitalByAge">
+                <Link href="/newHospitalByAge" as={process.env.BACKEND_URL + '/newHospitalByAge'}>
                     <LinkLabel>New Hospitalizations By Age</LinkLabel>
                 </Link>
             </FloatLi>
             <FloatLi>
-                <Link href="/newDeathsByAge">
+                <Link href="/newDeathsByAge" as={process.env.BACKEND_URL + '/newDeathsByAge'}>
                     <LinkLabel>New Deaths By Age</LinkLabel>
                 </Link>
             </FloatLi>
