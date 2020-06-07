@@ -94,6 +94,8 @@ const Links = () => {
                     <LinkLabel>New Deaths By Age</LinkLabel>
                 </Link>
             </FloatLi>
+            <FloatLi>{process.env.NODE_ENV}</FloatLi>
+            <FloatLi>{process.env.BACKEND_URL}</FloatLi>
         </ListHolder>
     )
 
