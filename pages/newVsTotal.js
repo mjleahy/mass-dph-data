@@ -1,9 +1,13 @@
 import Links from '../components/links'
 import ChartNewVsTotal from '../components/chartNewVsTotal'
 import Head from 'next/head'
-import LoadCaseByDate from '../lib/casesByDate';
+import ChartWithNotes from '../components/chartWithNotes'
 
-export default function NewVsTotalPage({ data }) {
+const { LoadCasesByDate } = require('../lib/loadData');
+
+export default function NewVsTotalPage({ data, notes }) {
+    const chart = <ChartNewVsTotal data={data} />;
+
     return (
         <div className="container">
             <Head>
@@ -14,7 +18,7 @@ export default function NewVsTotalPage({ data }) {
             <main>
                 <Links />
                 <h1>New Vs Total</h1>
-                <ChartNewVsTotal data={data} />
+                <ChartWithNotes chart={chart} notes={notes} />
             </main>
         </div>
     )
@@ -23,8 +27,8 @@ export default function NewVsTotalPage({ data }) {
 export async function getStaticProps(context) {
     const data = [];
 
-    const cases = await LoadCaseByDate();
-
+    const cases = await LoadCasesByDate();
+    console.log(`Case[0]: ${JSON.stringify(cases[0])}`);
     for (var i = 0; i < cases.length; i++) {
         const newCases = parseInt(cases[i]['New']);
         const totalCases = parseInt(cases[i]['Total']);
@@ -32,6 +36,8 @@ export async function getStaticProps(context) {
             data.push({ newCases, totalCases })
         }
     }
+    const notes = [];
+    notes.push('Totals include Confirmed and Probable');
 
-    return { props: { data } }
+    return { props: { data, notes } }
 }
