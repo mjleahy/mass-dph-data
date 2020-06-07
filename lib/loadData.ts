@@ -32,7 +32,8 @@ export const DateOfDeath = async () => {
  * Read Age.csv and reformat into and array of objects
  */
 export const Age = async () => {
-    const data = await LoadFile('data/Age.csv');
+    const oldData: any[] = await LoadFile('data/Age-20200531.csv');
+    const data: any[] = oldData.concat(await LoadFile('data/Age.csv'));
     const dataByDate = {};
 
     for (var i = 0; i < data.length; i++) {
@@ -146,6 +147,14 @@ export const LoadCasesByDate = async () => {
     return rows;
 }
 
-export const LoadTestingByDate = async () => {
-    return await LoadFile('data/TestingByDate.csv');
+export const LoadTestingByDate: Object = async () => {
+    const rawData: any[] = await LoadFile('data/TestingByDate.csv');
+    const rows = [];
+    for (var i = 0; i < rawData.length; i++) {
+        rows.push(Object.assign(rawData[i], {
+            Positive: parseInt(rawData[i]['Molecular Positive New']),
+            New: parseInt(rawData[i]['Molecular New'])
+        }))
+    }
+    return rows;
 }

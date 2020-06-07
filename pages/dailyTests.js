@@ -1,6 +1,6 @@
 import Links from '../components/links'
 import Head from 'next/head'
-import TestingByDay from '../lib/testingByDay'
+const { LoadTestingByDate } = require('../lib/loadData')
 import ChartDailyTests from '../components/charts/chartDailyTests'
 import { mean } from 'simple-statistics';
 
@@ -24,7 +24,7 @@ export default function DailyTests({ data }) {
 export async function getStaticProps(context) {
     const data = [];
     const dailyTests = [];
-    const tests = await TestingByDay();
+    const tests = await LoadTestingByDate();
     for (var i = 0; i < tests.length; i++) {
         dailyTests.push(parseInt(tests[i]['New']));
     }
