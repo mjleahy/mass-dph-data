@@ -17,84 +17,81 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import PrefixLink from './prefixLink';
 
+const listStyle = {
+    listStyleType: 'none',
+    margin: 0,
+    padding: 0,
+    overflow: 'hidden',
+    backgroundColor: '#333333'
+};
+
+const liStyle = {
+    float: 'left'
+}
+
+const linkLabel = {
+    display: 'block',
+    color: 'white',
+    textAlign: 'center',
+    padding: '16px',
+    textDecordation: 'none'
+}
+
 
 const Links = () => {
-
-    const ListHolder = styled.ul`
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333333;
-    `;
-
-    const FloatLi = styled.li` 
-        float: left;
-        `;
-
-    const LinkLabel = styled.a`
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 16px;
-        text-decordation: none;
-    `;
-
     return (
-        <ListHolder>
-            <FloatLi>
+        <ul style={listStyle}>
+            <li style={liStyle}>
                 <PrefixLink href="/">
-                    <LinkLabel>Home</LinkLabel>
+                    <a style={linkLabel}>Home</a>
                 </PrefixLink>
-            </FloatLi>
-            <FloatLi>
+            </li>
+            <li style={liStyle}>
                 <PrefixLink href="/chart1">
-                    <LinkLabel>Chart 1</LinkLabel>
+                    <a style={linkLabel}>Chart 1</a>
                 </PrefixLink>
-            </FloatLi>
-            <FloatLi>
+            </li>
+            <li style={liStyle}>
                 <PrefixLink href="/newVsTotal">
-                    <LinkLabel>New vs Total</LinkLabel>
+                    <a style={linkLabel}>New vs Total</a>
                 </PrefixLink>
-            </FloatLi>
-            <FloatLi>
+            </li>
+            <li style={liStyle}>
                 <PrefixLink href="/hospitalizationVsTotal">
-                    <LinkLabel>Hospitalizations vs Total</LinkLabel>
+                    <a style={linkLabel}>Hospitalizations vs Total</a>
                 </PrefixLink>
-            </FloatLi>
-            <FloatLi>
-                <Link href="/positiveTestRate" as={process.env.BACKEND_URL + '/positiveTestRate'} >
-                    <LinkLabel>Positive Test Rate</LinkLabel>
-                </Link>
-            </FloatLi>
-            <FloatLi>
-                <Link href="/dailyTests" as={process.env.BACKEND_URL + '/dailyTests'}>
-                    <LinkLabel>Daily Tests</LinkLabel>
-                </Link>
-            </FloatLi>
-            <FloatLi>
-                <Link href="/ageOfPatients" as={process.env.BACKEND_URL + '/ageOfPatients'}>
-                    <LinkLabel>Age of Cases</LinkLabel>
-                </Link>
-            </FloatLi>
-            <FloatLi>
-                <Link href="/newCasesByAge" as={process.env.BACKEND_URL + '/newCasesByAge'}>
-                    <LinkLabel>New Cases By Age</LinkLabel>
-                </Link>
-            </FloatLi>
-            <FloatLi>
-                <Link href="/newHospitalByAge" as={process.env.BACKEND_URL + '/newHospitalByAge'}>
-                    <LinkLabel>New Hospitalizations By Age</LinkLabel>
-                </Link>
-            </FloatLi>
-            <FloatLi>
-                <Link href="/newDeathsByAge" as={process.env.BACKEND_URL + '/newDeathsByAge'}>
-                    <LinkLabel>New Deaths By Age</LinkLabel>
-                </Link>
-            </FloatLi>
-            <FloatLi>NODE{process.env.NODE_ENV}ENV</FloatLi>
-            <FloatLi>UR{process.env.linkPrefix}L</FloatLi>
-        </ListHolder>
+            </li>
+            <li style={liStyle}>
+                <PrefixLink href="/positiveTestRate" as={process.env.BACKEND_URL + '/positiveTestRate'} >
+                    <a style={linkLabel}>Positive Test Rate</a>
+                </PrefixLink>
+            </li>
+            <li style={liStyle}>
+                <PrefixLink href="/dailyTests" as={process.env.BACKEND_URL + '/dailyTests'}>
+                    <a style={linkLabel}>Daily Tests</a>
+                </PrefixLink>
+            </li>
+            <li style={liStyle}>
+                <PrefixLink href="/ageOfPatients" as={process.env.BACKEND_URL + '/ageOfPatients'}>
+                    <a style={linkLabel}>Age of Cases</a>
+                </PrefixLink>
+            </li>
+            <li style={liStyle}>
+                <PrefixLink href="/newCasesByAge" as={process.env.BACKEND_URL + '/newCasesByAge'}>
+                    <a style={linkLabel}>New Cases By Age</a>
+                </PrefixLink>
+            </li>
+            <li style={liStyle}>
+                <PrefixLink href="/newHospitalByAge" as={process.env.BACKEND_URL + '/newHospitalByAge'}>
+                    <a style={linkLabel}>New Hospitalizations By Age</a>
+                </PrefixLink>
+            </li>
+            <li style={liStyle}>
+                <PrefixLink href="/newDeathsByAge" as={process.env.BACKEND_URL + '/newDeathsByAge'}>
+                    <a style={linkLabel}>New Deaths By Age</a>
+                </PrefixLink>
+            </li>
+        </ul>
     )
 
 }
