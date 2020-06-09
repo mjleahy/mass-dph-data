@@ -40,8 +40,6 @@ export async function getStaticProps(context) {
     const data = [];
 
     const tests = await LoadTestingByDate();
-    console.log(`Test[0]: ${JSON.stringify(tests[0])}`)
-    console.log(`Test end: ${JSON.stringify(_.last(tests))}`);
     let p3 = 0;
     let t3 = 0;
     let p7 = 0;
