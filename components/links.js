@@ -37,60 +37,30 @@ const linkLabel = {
     textDecordation: 'none'
 }
 
+const allLinks = [
+    { href: "/", label: "Home" },
+    { href: '/chart1', label: 'Chart 1'},
+    {href: '/newVsTotal', label: 'New vs Total'},
+    {href: '/hospitalizationVsTotal', label: 'Hospitalizations vs Total'},
+    {href: '/positiveTestRate', label: 'Positive Test Rate'},
+    {href: '/dailyTests', label: 'Daily Tests'},
+    {href: '/ageOfPatients', label: 'Age of Cases'},
+    {href: '/newCasesByAge', label: 'New Cases By Age'},
+    {href: '/newHospitalByAge', label: 'New Hospitalizations By Age'},
+    {href: '/newDeathsByAge', label: 'New Deaths By Age'},
+]
+
 
 const Links = () => {
     return (
         <ul style={listStyle}>
-            <li style={liStyle}>
-                <PrefixLink href="/">
-                    <a style={linkLabel}>Home</a>
-                </PrefixLink>
-            </li>
-            <li style={liStyle}>
-                <PrefixLink href="/chart1">
-                    <a style={linkLabel}>Chart 1</a>
-                </PrefixLink>
-            </li>
-            <li style={liStyle}>
-                <PrefixLink href="/newVsTotal">
-                    <a style={linkLabel}>New vs Total</a>
-                </PrefixLink>
-            </li>
-            <li style={liStyle}>
-                <PrefixLink href="/hospitalizationVsTotal">
-                    <a style={linkLabel}>Hospitalizations vs Total</a>
-                </PrefixLink>
-            </li>
-            <li style={liStyle}>
-                <PrefixLink href="/positiveTestRate" as={process.env.BACKEND_URL + '/positiveTestRate'} >
-                    <a style={linkLabel}>Positive Test Rate</a>
-                </PrefixLink>
-            </li>
-            <li style={liStyle}>
-                <PrefixLink href="/dailyTests" as={process.env.BACKEND_URL + '/dailyTests'}>
-                    <a style={linkLabel}>Daily Tests</a>
-                </PrefixLink>
-            </li>
-            <li style={liStyle}>
-                <PrefixLink href="/ageOfPatients" as={process.env.BACKEND_URL + '/ageOfPatients'}>
-                    <a style={linkLabel}>Age of Cases</a>
-                </PrefixLink>
-            </li>
-            <li style={liStyle}>
-                <PrefixLink href="/newCasesByAge" as={process.env.BACKEND_URL + '/newCasesByAge'}>
-                    <a style={linkLabel}>New Cases By Age</a>
-                </PrefixLink>
-            </li>
-            <li style={liStyle}>
-                <PrefixLink href="/newHospitalByAge" as={process.env.BACKEND_URL + '/newHospitalByAge'}>
-                    <a style={linkLabel}>New Hospitalizations By Age</a>
-                </PrefixLink>
-            </li>
-            <li style={liStyle}>
-                <PrefixLink href="/newDeathsByAge" as={process.env.BACKEND_URL + '/newDeathsByAge'}>
-                    <a style={linkLabel}>New Deaths By Age</a>
-                </PrefixLink>
-            </li>
+            {allLinks.map((singleLink) => (
+                <li key={singleLink.href} style={liStyle}>
+                    <PrefixLink href={singleLink.href}>
+                        <a style={linkLabel}>{singleLink.label}</a>
+                    </PrefixLink>
+                </li>
+            ))}
         </ul>
     )
 
