@@ -14,7 +14,7 @@
  */
 
 import Head from 'next/head'
-import Link from 'next/link'
+import PrefixLink from '../components/prefixLink'
 import Links from '../components/links'
 
 export default function Home() {
@@ -37,12 +37,12 @@ export default function Home() {
         </p>
 
         <div className="grid">
-          <Link href="/chart1" as={process.env.BACKEND_URL + '/chart1'}>
+          <PrefixLink href="/chart1">
             <a className="card">
               <h3>Chart 1</h3>
               <p>The 1st chart I started</p>
             </a>
-          </Link>
+          </PrefixLink>
           <a href="https://nextjs.org/docs" className="card">
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
@@ -229,6 +229,6 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-    </div>
+    </div >
   )
 }

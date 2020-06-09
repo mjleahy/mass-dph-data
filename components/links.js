@@ -15,6 +15,7 @@
 
 import styled from 'styled-components'
 import Link from 'next/link'
+import PrefixLink from './prefixLink';
 
 
 const Links = () => {
@@ -39,30 +40,27 @@ const Links = () => {
         text-decordation: none;
     `;
 
-    console.log(`ENV: ${process.env.NODE_ENV}`);
-    console.log(`URL: ${process.env.BACKEND_URL}`);
-
     return (
         <ListHolder>
             <FloatLi>
-                <Link href="/" as={process.env.BACKEND_URL + '/'}>
+                <PrefixLink href="/">
                     <LinkLabel>Home</LinkLabel>
-                </Link>
+                </PrefixLink>
             </FloatLi>
             <FloatLi>
-                <Link href="/chart1" as={process.env.BACKEND_URL + '/chart1'}>
+                <PrefixLink href="/chart1">
                     <LinkLabel>Chart 1</LinkLabel>
-                </Link>
+                </PrefixLink>
             </FloatLi>
             <FloatLi>
-                <Link href="/newVsTotal" as={process.env.BACKEND_URL + '/newVsTotal'}>
+                <PrefixLink href="/newVsTotal">
                     <LinkLabel>New vs Total</LinkLabel>
-                </Link>
+                </PrefixLink>
             </FloatLi>
             <FloatLi>
-                <Link href="/hospitalizationVsTotal" as={process.env.BACKEND_URL + '/hospitalizationVsTotal'} >
+                <PrefixLink href="/hospitalizationVsTotal">
                     <LinkLabel>Hospitalizations vs Total</LinkLabel>
-                </Link>
+                </PrefixLink>
             </FloatLi>
             <FloatLi>
                 <Link href="/positiveTestRate" as={process.env.BACKEND_URL + '/positiveTestRate'} >
@@ -94,8 +92,8 @@ const Links = () => {
                     <LinkLabel>New Deaths By Age</LinkLabel>
                 </Link>
             </FloatLi>
-            <FloatLi>{process.env.NODE_ENV}</FloatLi>
-            <FloatLi>{process.env.BACKEND_URL}</FloatLi>
+            <FloatLi>NODE{process.env.NODE_ENV}ENV</FloatLi>
+            <FloatLi>UR{process.env.linkPrefix}L</FloatLi>
         </ListHolder>
     )
 
