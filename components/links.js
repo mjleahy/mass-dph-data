@@ -49,6 +49,7 @@ const allLinks = [
     {href: '/newCasesByAge', label: 'New Cases By Age'},
     {href: '/newHospitalByAge', label: 'New Hospitalizations By Age'},
     {href: '/newDeathsByAge', label: 'New Deaths By Age'},
+    {href: '/cumulativeDeathsByAge', label: 'Cumulative Deaths By Age'},
 ]
 
 
