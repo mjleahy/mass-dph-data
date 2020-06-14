@@ -45,6 +45,7 @@ const allLinks = [
     {href: '/positiveTestRate', label: 'Positive Test Rate'},
     {href: '/dailyTests', label: 'Daily Tests'},
     {href: '/ageOfPatients', label: 'Age of Cases'},
+    {href: '/ageOfDeaths', label: 'Age of Deaths'},
     {href: '/newCasesByAge', label: 'New Cases By Age'},
     {href: '/newHospitalByAge', label: 'New Hospitalizations By Age'},
     {href: '/newDeathsByAge', label: 'New Deaths By Age'},
