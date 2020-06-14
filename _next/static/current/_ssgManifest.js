@@ -1,1 +1,1 @@
-self.__SSG_MANIFEST=new Set(["\u002FageOfPatients","\u002FnewVsTotal","\u002FdailyTests","\u002FhospitalizationVsTotal","\u002FpositiveTestRate","\u002FnewHospitalByAge","\u002FnewCasesByAge","\u002Fchart1","\u002FnewDeathsByAge"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
+self.__SSG_MANIFEST=new Set(["\u002FnewHospitalByAge","\u002FnewVsTotal","\u002FageOfPatients","\u002FpositiveTestRate","\u002FhospitalizationVsTotal","\u002FnewDeathsByAge","\u002FdailyTests","\u002Fchart1","\u002FnewCasesByAge"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
