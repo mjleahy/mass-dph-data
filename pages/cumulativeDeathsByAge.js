@@ -22,16 +22,17 @@ import { useState } from 'react';
 
 export default function CumulativeDeathByAge({ data }) {
     const [scale, setScale] = useState(0);
+    const t = "Cumulative Deaths By Age";
     return (
         <div className="container">
             <Head>
-                <title>Cumulative Death By Age</title>
+                <title>{t}</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <main>
                 <Links />
-                <h1>Chart 1</h1>
+                <h1>{t}</h1>
                 <ChartCumulativeDeathsByAge data={data} scale={scale} />
                 <ScaleToggle scale={scale} setScale={setScale} />
             </main>

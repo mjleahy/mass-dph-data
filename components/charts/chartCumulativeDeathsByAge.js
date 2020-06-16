@@ -13,8 +13,9 @@
  *  DEALINGS IN THE SOFTWARE.
  */
 
-import { Brush, LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import { Brush, LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend, CartesianGrid } from 'recharts';
 import { schemePaired } from 'd3-scale-chromatic';
+import { GetLogTicks } from '../../lib/chartFormatters';
 const _ = require('lodash');
 const moment = require('moment')
 const formatXAxis = (tickItem) => {
@@ -29,6 +30,14 @@ const formatTooltip = (value, name, props) => {
 const ageBrackets = ['0-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79', '80+'];
 
 const CumulativeDeathsByAge = ({ data, scale }) => {
+    const merged_data = [];
+    data.map((item) => {
+        const d = item.date;
+        ageBrackets.map((ageGroup) => {
+            merged_data.push({ date: d, age: ageGroup, deaths: item[ageGroup] })
+        })
+    })
+
     return (
         <div style={{ width: '100%', height: 600 }}>
             <ResponsiveContainer>
@@ -37,10 +46,11 @@ const CumulativeDeathsByAge = ({ data, scale }) => {
                         <Line key={bracket} type="monotone" dataKey={bracket} stroke={schemePaired[index]} />
                     ))}
                     <XAxis dataKey="date" tickFormatter={formatXAxis} />
-                    <YAxis type="number" domain={['auto', 'auto']} scale={scale % 2 == 0 ? 'auto' : 'log'} />
+                    <YAxis type="number" domain={['auto', 'auto']} scale={scale % 2 == 0 ? 'auto' : 'log'} ticks={scale % 2 == 0 ? null : GetLogTicks(merged_data, 'deaths')} />
                     <Brush dataKey="date" tickFormatter={formatXAxis} />
                     <Tooltip labelFormatter={formatXAxis} formatter={formatTooltip} />
                     <Legend />
+                    <CartesianGrid />
                 </LineChart>
             </ResponsiveContainer>
         </div>
