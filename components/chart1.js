@@ -13,7 +13,8 @@
  *  DEALINGS IN THE SOFTWARE.
  */
 
-import { Brush, LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import { Brush, LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend, CartesianGrid } from 'recharts';
+import { GetLogTicks } from '../lib/chartFormatters';
 const _ = require('lodash');
 const moment = require('moment')
 const formatXAxis = (tickItem) => {
@@ -26,6 +27,20 @@ const formatTooltip = (value, name, props) => {
 }
 
 const Chart1 = ({ data, scale }) => {
+    let yScale = 'auto';
+    let yTicks = null;
+    if (scale % 2 != 0) {
+        yScale = 'log';
+        //Roll up data
+        const rollUp = [];
+        data.map((values) => {
+            rollUp.push({ maxKey: _.max([values.tests, values.cases, values.deaths, values.hospitalizations]) });
+        })
+        console.log(`Hey: ${JSON.stringify(rollUp[0])}`);
+        console.log(`Now: ${JSON.stringify(_.last(rollUp))}`);
+        yTicks = GetLogTicks(rollUp, 'maxKey');
+    }
+
     return (
         <div style={{ width: '100%', height: 600 }}>
             <ResponsiveContainer>
@@ -35,9 +50,10 @@ const Chart1 = ({ data, scale }) => {
                     <Line type="monotone" dataKey="deaths" stroke="#000000" />
                     <Line type="monotone" dataKey="hospitalizations" stroke="#00FF00" />
                     <XAxis dataKey="date" tickFormatter={formatXAxis} />
-                    <YAxis type="number" domain={['auto', 'auto']} scale={scale % 2 == 0 ? 'auto' : 'log'} />
+                    <YAxis type="number" domain={['auto', 'auto']} scale={yScale} ticks={yTicks} />
                     <Brush dataKey="date" tickFormatter={formatXAxis} />
                     <Tooltip labelFormatter={formatXAxis} formatter={formatTooltip} />
+                    <CartesianGrid />
                     <Legend />
                 </LineChart>
             </ResponsiveContainer>
